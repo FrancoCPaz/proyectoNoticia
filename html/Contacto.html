@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sitio De Contacto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+
+    <div class="content">
+
+        <h1 class="logo">Contact <span>Us</span></h1>
+
+        <div class="contact-wrapper animated bounceInUp">
+            <div class="contact-form">
+                <h3>Contactanos</h3>
+                <form id="contactForm" action="">
+                    <p>
+                        <label data-toggle="popover" data-placement="right" data-content="Ingresa tu nombre completo">Nombre Completo</label>
+                        <input type="text" name="fullname" required>
+                    </p>
+                    <p>
+                        <label data-toggle="popover" data-placement="right" data-content="Ingresa tu dirección de correo electrónico">Direccion Email</label>
+                        <input type="email" name="email" required>
+                    </p>
+                    <p>
+                        <label data-toggle="popover" data-placement="right" data-content="Ingresa tu número telefónico">Número Telefónico</label>
+                        <input type="tel" name="phone" required>
+                    </p>
+                    <p>
+                        <label data-toggle="popover" data-placement="right" data-content="Escribe el asunto del mensaje">Asuntos</label>
+                        <input type="text" name="affair" required>
+                    </p>
+                    <p class="block">
+                        <label data-toggle="popover" data-placement="right" data-content="Escribe tu mensaje">Mensaje</label> 
+                        <textarea name="message" rows="3" required></textarea>
+                    </p>
+                    <p class="block">
+                        <button type="submit">
+                            Enviar
+                        </button>
+                    </p>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h4>Mas Informacion</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Duoc Uc</li>
+                    <li><i class="fas fa-phone"></i> (+56) 9 3456 4356</li>
+                    <li><i class="fas fa-envelope-open-text"></i> ChaosNew@website.com</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero provident ipsam necessitatibus repellendus?</p>
+                <p>Company.com</p>
+            </div>
+            <div class="popover-button">
+                <button class="btn btn-primary" data-toggle="popover" data-placement="bottom" title="Información de Contacto" data-content="Este es un sitio de contacto donde puedes enviar mensajes y obtener información.">Más Información</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>¿Estás seguro de enviar el mensaje?</p>
+            <button id="confirmBtn">Enviar</button>
+            <button id="cancelBtn">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="contacto.js"></script>
+</body>
+</html>
