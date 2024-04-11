@@ -3,7 +3,10 @@
 }
 
 body {
-    background: #181818 url('ruta_de_tu_imagen.jpg') center/cover;
+    background-image: url(../img/fondo-login.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center; 
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     font-family: 'Quicksand', sans-serif;
