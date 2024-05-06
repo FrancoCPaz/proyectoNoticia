@@ -41,3 +41,9 @@ body {
 .clock{
   color: #007BFF;
 }
+#time{
+  font-size: 40px;
+}
+#date{
+  margin: 0%;
+}
