@@ -64,4 +64,31 @@ h2 {
 .btn:hover{
   transform: translateY(-10px);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 1); 
+  transition: transform .5s, box-shadow .5s; 
+}
+#logoCN:hover{
+  border-radius: 50px;
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 1); 
+  transition: transform .5s, box-shadow .5s; 
+}
+.nav-link:hover{
+  background-color: #007BFF;
+  color: #F0FFFF;
+  border-radius: 30px;
+  transform: translate(-2px);
+}
+.bi:hover{
+  border-radius: 10px;
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.500); 
+  transition: transform .5s, box-shadow .5s; 
+}
+.dropdown-item:hover{
+  background-color: #007BFF;
+  color: #F0FFFF;
+  border-radius: 10px;
+  transform: translate(-2px);
+  width: max-content;
+  margin-left: 5px;
 }
