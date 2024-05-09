@@ -100,9 +100,40 @@
   
 </main>
   <hr>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <!-- api -->
+          <div class="card-header">
+            Clima
+          </div>
+          <div class="card-body "id="weather">
+            <h3 class="card-title">Viña del mar</h3>
+            <p>Temperatura: <span id="temp"></span><i class="bi bi-thermometer-half"></i> °C</p>
+            <p>Velocidad del Viento: <span id="wind"></span> <i class="bi bi-wind"></i>km/h</p>
+          </div>
+        </div>
+      </div>
+      <!-------------------------------->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Cine
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Noticia 1</h5>
+            <p class="card-text">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <!--card sin foto-->
-  <div class="container-fluid card text-start">
+  <div class="container-fluid card text-start mt-4">
     <div class="card-header">
       Deporte
     </div>
@@ -112,6 +143,9 @@
       <a href="#" class="btn btn-primary">Leer Mas</a>
     </div>
   </div>
+  
+  
+  
   <!--noticia-->
   <div class="container mt-3">
     <div class="card mb-3 card-horizontal">
@@ -125,31 +159,7 @@
     </div>
   </div>
   <!--noticia-->
-  <div class="container mt-3">
-    <div class="card mb-3 card-horizontal">
-      <img src="../img/fondo-4.jpg" class="card-img-left" alt="noticia">
-      
-      <div class="card-body">
-        <h4 class="card-title">noticia</h4>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam et reiciendis odit tempore totam fugiat inventore earum rem accusantium, possimus incidunt perspiciatis pariatur omnis, consequuntur minus soluta amet nemo animi?</p>
-        <a href="#" class="btn btn-primary">Leer más</a>
-      </div>
-    </div>
-  </div>
-  <!--noticia-->
-  <div class="container mt-3">
-    <div class="card mb-3 card-horizontal">
-      <img src="../img/fondo-3.jpg" class="card-img-left" alt="noticia">
-      
-      <div class="card-body">
-        <h4 class="card-title">noticia</h4>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam et reiciendis odit tempore totam fugiat inventore earum rem accusantium, possimus incidunt perspiciatis pariatur omnis, consequuntur minus soluta amet nemo animi?</p>
-        <a href="#" class="btn btn-primary">Leer más</a>
-      </div>
-    </div>
-  </div>
-  
-  
+
 <!--cartas noticias-->
   <div class="container mt-4">
     <div class="row">
@@ -290,5 +300,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="scripts.js"></script>
   <script src="../js/tiempo.js"></script>
+  <script src="../js/weather.js"></script>
 </body>
 </html>
