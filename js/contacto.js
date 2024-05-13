@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     // Inicializar popovers de Bootstrap
     $(function () {
@@ -7,11 +6,23 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Restringir entrada en campo de número telefónico
+    // Restringir entrada en campo de nombre
+    const nameInput = document.querySelector('input[name="fullname"]');
+    nameInput.addEventListener("input", function() {
+        // Elimina cualquier carácter que no sea una letra o un espacio
+        this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+    });
+
+    // Restringir entrada en campo de número telefónico y limitar a 12 caracteres
     const phoneInput = document.querySelector('input[name="phone"]');
     phoneInput.addEventListener("input", function() {
         // Elimina cualquier carácter que no sea + o un número
         this.value = this.value.replace(/[^+0-9]/g, "");
+        
+        // Limitar la longitud del número de teléfono a 12 caracteres
+        if (this.value.length > 12) {
+            this.value = this.value.slice(0, 12);
+        }
     });
 
     const form = document.getElementById("contactForm");
@@ -22,6 +33,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
     form.addEventListener("submit", function(event) {
         event.preventDefault(); // Evita el envío del formulario por defecto
+        
+        // Validación de campos
+        const fullname = form.querySelector('input[name="fullname"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const phone = form.querySelector('input[name="phone"]').value.trim();
+        const affair = form.querySelector('input[name="affair"]').value.trim();
+        const message = form.querySelector('textarea[name="message"]').value.trim();
+
+        // Validación de nombre
+        if (fullname === "") {
+            alert("Por favor, ingresa tu nombre completo.");
+            return false;
+        }
+
+        // Validación de correo electrónico usando expresión regular
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Por favor, introduce una dirección de correo electrónico válida.");
+            return false;
+        }
+
+        // Validación de número telefónico, opcional
+        // Puedes implementar una validación más precisa según tus necesidades
+        
+        // Validación de longitud del mensaje
+        if (message.length < 10) {
+            alert("El mensaje debe tener al menos 10 caracteres.");
+            return false;
+        }
+
+        // Si llegamos aquí, el formulario es válido
         modal.style.display = "block"; // Abre el modal de confirmación
     });
 
