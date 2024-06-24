@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <h1>Editar Datos Suscriptor</h1><br>
+        <br>
+
+        <button type="button">
+            <a href="{% url 'suscripcionesAdd' %}"> Agregar </a>
+        </button>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{mensaje}}
+            {% endif %}
+        </div>
+
+        <table>
+            {% if suscripciones %}
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Apellido P.</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
+                {% for x in suscripciones %}
+                    <tr>
+                        <td>{{ x.rut }}</td>
+                        <td>{{ x.nombre }}</td>
+                        <td>{{ x.apellido_paterno }}</td>
+                        <td><a href="{% url 'suscripciones_del' pk=x.rut %}">Eliminar</a></td>
+                        <td><a href="{% url 'suscripciones_findEdit' pk=x.rut %}">Modificar</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+
+    
+</body>
+</html>

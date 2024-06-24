@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Blog de Noticias</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../static/css/styleIndex.css">
+</head>
+<body> 
+  <header>
+      <!--navbar-->
+        <nav class="navbar navbar-expand-lg ">
+          <a class="navbar-brand" href="../suscripciones/base.html"><img src="../../static/img/logoCN.webp" alt="logo" id="logoCN"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-chevron-double-down"></i>
+        </button>
+        <!--tiempo-->
+        <div class="clock mt-4 ">
+          <p id="date" ></p>
+          <p id="time"></p>
+        </div>
+        <!------------------->
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="../base">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../galeria">Fotos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../acerca">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../noticias relevantes">Resumen Noticias</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../contacto">Contacto</a>
+              </li>
+              <li class="nav-item">
+              </li>
+            </ul>
+          </div>
+        </nav>
+</header>
+
+<main>
+  <!--carousel-->
+  <div id="noticiasCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#noticiasCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#noticiasCarousel" data-slide-to="1"></li>
+      <li data-target="#noticiasCarousel" data-slide-to="2"></li>
+      <li data-target="#noticiasCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../static/img/fondo-2.jpeg" class="d-block w-100" alt="Noticia 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Star Wars: Episodio I La Amenaza Fantasma</h5>
+          <p>es el primer episodio en la línea cronológica de la saga de Star Wars</p>
+          <a href="https://starwars.fandom.com/es/wiki/Star_Wars:_Episodio_I_La_Amenaza_Fantasma" class="btn btn-primary">Leer más</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://fotografias.larazon.es/clipping/cmsimages01/2023/06/27/6861C4D1-3BCB-4FC3-A2A5-221208113F17/contrario-que-quimio-que-ataca-celulas-buenas-esta-solucion-apunta-directamente-tumor_98.jpg?crop=7900,4445,x0,y416&width=1900&height=1069&optimize=low&format=webply" class="d-block w-100" alt="Noticia 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Título de la Noticia 2</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, facilis! Totam nisi aliquid rerum quos impedit, similique, ipsa consequuntur eveniet explicabo autem dolorum minus fugit nihil saepe harum nulla vero..</p>
+          <a href="../noticia2" class="btn btn-primary">Leer más</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../../static/img/egipto-3.jpeg" class="d-block w-100" alt="Noticia 3">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Título de la Noticia 3</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, facilis! Totam nisi aliquid rerum quos impedit, similique, ipsa consequuntur eveniet explicabo autem dolorum minus fugit nihil saepe harum nulla vero..</p>
+          <a href="../noticia3" class="btn btn-primary">Leer más</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://t.ctcdn.com.br/XEuSCkU3tJjRpnbWBuH_d2w_Z3Q=/660x0/smart/i516029.jpeg" class="d-block w-100" alt="Noticia 4">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Título de la Noticia 4</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, facilis! Totam nisi aliquid rerum quos impedit, similique, ipsa consequuntur eveniet explicabo autem dolorum minus fugit nihil saepe harum nulla vero..</p>
+          <a href="../noticia1" class="btn btn-primary">Leer más</a>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#noticiasCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#noticiasCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Siguiente</span>
+    </a>
+  </div>
+  
+</main>
+  <hr>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <!-- api -->
+          <div class="card-header">
+            Clima
+          </div>
+          <div class="card-body "id="weather">
+            <h3 class="card-title">Viña del mar</h3>
+            <p>Temperatura: <span id="temp"></span><i class="bi bi-thermometer-half"></i> °C</p>
+            <p>Velocidad del Viento: <span id="wind"></span> <i class="bi bi-wind"></i>km/h</p>
+          </div>
+        </div>
+      </div>
+      <!-------------------------------->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Cine
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Noticia 1</h5>
+            <p class="card-text">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--card sin foto-->
+  <div class="container-fluid card text-start mt-4">
+    <div class="card-header">
+      Deporte
+    </div>
+    <div class="card-body">
+      <h5 class="card-title text-start">Noticia sin foto</h5>
+      <p class="card-text text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus odit commodi nisi maxime consequuntur itaque exercitationem velit! Consectetur cumque, blanditiis at esse asperiores vero, tenetur nihil, nobis nam molestiae ducimus!</p>
+      <a href="#" class="btn btn-primary">Leer Mas</a>
+    </div>
+  </div>
+  
+  
+  
+  <!--noticia-->
+  <div class="container mt-3">
+    <div class="card mb-3 card-horizontal">
+      <img src="../../static/img/fondo-2.jpeg" class="card-img-left" alt="noticia">
+      
+      <div class="card-body">
+        <h4 class="card-title">Star Wars: episodio I - la amenaza fantasma</h4>
+        <p class="card-text">La trama describe la historia del maestro jedi Qui-Gon Jinn y de su aprendiz Obi-Wan Kenobi, que escoltan y protegen a la Reina Amidala desde su planeta Naboo hasta Coruscant con la esperanza de encontrar una salida pacífica a un conflicto comercial interplanetario a gran escala. También trata del joven Anakin Skywalker antes de convertirse en Jedi, presentado como un esclavo con un potencial de la Fuerza inusualmente fuerte, y debe lidiar con el misterioso regreso de los Sith.</p>
+        <a href="https://starwars.fandom.com/es/wiki/Star_Wars:_Episodio_I_La_Amenaza_Fantasma" class="btn btn-primary">Leer más</a>
+      </div>
+    </div>
+  </div>
+  <!--noticia-->
+
+<!--cartas noticias-->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="../../static/img/fondo-1.jpeg" class="card-img-top" alt="noticia">
+          <div class="card-body">
+            <h5 class="card-title">Noticia 1</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus, magni blanditiis aliquid et excepturi quia eos ea nesciunt dignissimos veritatis esse? Expedita asperiores, odit quas minus earum molestiae voluptatum?</p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="../../static/img/fondo-2.jpeg" class="card-img-top" alt="noticia">
+          <div class="card-body">
+            <h5 class="card-title">Título de la Noticia 2</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus, magni blanditiis aliquid et excepturi quia eos ea nesciunt dignissimos veritatis esse? Expedita asperiores, odit quas minus earum molestiae voluptatum?</p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" id="3">
+          <img src="https://t.ctcdn.com.br/XEuSCkU3tJjRpnbWBuH_d2w_Z3Q=/660x0/smart/i516029.jpeg" class="card-img-top" alt="noticia">
+          <div class="card-body">
+            <h5 class="card-title">Título de la Noticia 3</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus, magni blanditiis aliquid et excepturi quia eos ea nesciunt dignissimos veritatis esse? Expedita asperiores, odit quas minus earum molestiae voluptatum?</p>
+            <a href="../noticia1" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Noticias Principales</h2>
+        <div class="card mb-3">
+          <img src="../../static/img/noticia-2.jpg" class="card-img-top" alt="noticia">
+          <div class="card-body">
+            <h5 class="card-title">Alice in chains</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi blanditiis eius dolores iure, assumenda laboriosam, natus, placeat tenetur exercitationem minus necessitatibus. Alias quis vero maiores excepturi, minus recusandae illum velit!</p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2>Mitos y Leyendas</h2>
+        <div class="card mb-3">
+          <img src="../../static/img/Gran_Zeus.jpg" class="card-img-top" alt="noticia">
+          <div class="card-body">
+            <h5 class="card-title">Mitos y Leyendas</h5>
+            <p class="card-text">Mitos y Leyendas (abreviado MyL) es un juego de cartas coleccionables, comercializado por la extinta editorial chilena Salo. Durante casi diez años, fue uno de los TCG más populares de América Latina, sobrepasando las veinte ediciones en el mercado y constituyéndose como una alternativa para los jugadores debido a su bajo precio y temática diferente.</p>
+            <a href="https://myl.fandom.com/es/wiki/Mitos_y_Leyendas#%C3%89poca_Dorada:_Primer_Bloque_(2003-2004)" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <!--Noticias con Article -->
+      <div class="col-md-8">
+        <article>
+          <h2>Noticias Principales</h2>
+          <article class="card mb-3">
+            <img src="../../static/img/fondo-2.jpeg" class="card-img-top" alt="noticia">
+            <div class="card-body">
+              <h5 class="card-title">noticia</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nobis voluptas sit ex consequuntur quisquam facere, quos culpa praesentium reiciendis quas voluptatibus perspiciatis ipsum similique excepturi nam corrupti, iste repudiandae?</p>
+              <a href="#" class="btn btn-primary">Leer más</a>
+            </div>
+          </article>
+        </article>
+      </div>
+        <div class="col-md-4">
+        <aside>
+            <h2>Anuncios</h2>
+            <hr class="anuncio">
+            <div class="card mb-3">
+              <img src="../../static/img/anuncio-1.jpg" class="card-img-top" alt="noticia">
+            </div>
+            <div class="card mb-3">
+              <h2>Ver tu pokemon</h2>
+              <img src="../../static/img/pokedex.jpg" class="card-img-top" alt="noticia">
+              <a href="../pokedex" class="btn btn-primary">ver</a>
+            </div>
+        </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <!--pie de pagina-->
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Sobre Nosotros</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quam, vitae temporibus repellendus nobis qui quas deleniti, nisi placeat quo exercitationem, iusto cum modi velit pariatur ut enim fugit aliquam!</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="../base" class="text-light">Inicio</a></li>
+            <li><a href="#" class="text-light">Noticias</a></li>
+            <li><a href="../acerca" class="text-light">Nosotros</a></li>
+            <li><a href="#" class="text-light">Contacto</a></li>
+            <li><a href="../login" class="text-light">inicio de seccion</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <!--Dropdown button-->
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Siguenos
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome"><i class="bi bi-twitter-x"></i> Twitter</a>
+              <a class="dropdown-item" href="https://web.facebook.com/?_rdc=1&_rdr"><i class="bi bi-facebook"></i> Facebook</a>
+              <a class="dropdown-item" href="https://www.instagram.com/"><i class="bi bi-instagram"></i> Instagram</a>
+            </div>
+          </div>
+          
+          <!---------------------->
+         
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <p>© 2024 Mi Blog de Noticias. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="../../static/js/tiempo.js"></script>
+  <script src="../../static/js/weather.js"></script>
+</body>
+</html>

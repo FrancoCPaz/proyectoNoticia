@@ -1,0 +1,17 @@
+{% extends "Administrador/base %.html"}
+{% load static %}
+
+{% block title %} Gestion Caos News {% end block %}
+
+
+
+{% block content %}
+    <div class="container">
+        {% if suscripciones %}
+            <br><br>
+            {% suscriptor for suscripciones %}
+                {{suscriptor}} <br>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

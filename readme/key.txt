@@ -1,3 +1,0 @@
-key del clima: ba5f0aca1aa5090900b74b053ed1ba89
-
-https://openweathermap.org/current

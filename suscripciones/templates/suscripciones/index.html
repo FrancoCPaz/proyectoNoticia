@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripciones</title>
+</head>
+<body>
+    <h1>Suscripciones Activas</h1>
+     <br>
+     {% for suscriptor in suscripciones %}
+
+        {{suscriptor.rut}}, {{suscriptor.nombre}}, {{suscriptor.apellido_paterno}},
+        {{suscriptor.apellido_materno}}, {{suscriptor.id_genero.genero}} <br>
+    
+     {% endfor%}
+
+    
+</body>
+</html>

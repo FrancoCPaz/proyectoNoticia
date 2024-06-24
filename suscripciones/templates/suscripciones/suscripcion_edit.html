@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="../../static/css/styleRegistro.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        {% if suscriptor %}
+            <h2>Formulario Actualizar Datos</h2><br>
+
+            <form id="form" class="form" action="{% url 'suscripcionesUpdate' %}" method="POST">
+                {% csrf_token %}
+                
+                <div class="form-control">
+                    <input type="text" name="rut"  value="{{suscriptor.rut}}">
+                </div>
+
+                <div class="form-control">
+                    <input type="text" name="nombre"  value="{{suscriptor.nombre}}">
+                </div>
+
+                <div class="form-control">
+                    <input type="text" name="paterno"  value="{{suscriptor.apellido_paterno}}">
+                </div>
+
+                <div class="form-control">
+                    <input type="text" name="materno"  value="{{suscriptor.apellido_materno}}">
+                </div>
+
+                <div class="form-control">
+                    <input type="date" name="fechaNac"  value="{{suscriptor.fecha_nacimiento|date:'Y-m-d'}}">
+                </div>
+
+                <div class="form-control">
+                    <select name="genero">
+
+                        {% for genero in generos %}
+                            {% if genero.genero == suscriptor.id_genero.genero %}
+                                <option value="{{genero.id_genero}}" selected>{{genero.genero}}</option>
+                            {% else %}
+                                <option value="{{genero.id_genero}}" >{{genero.genero}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <input type="text" name="telefono"  value="{{suscriptor.telefono}}">
+                </div>
+
+                <div class="form-control">
+                    <input type="mail" name="email"  value="{{suscriptor.email}}">
+                </div>
+
+                <div class="form-control">
+                    <input type="text" name="direccion"  value="{{suscriptor.direccion}}">
+                </div>      
+
+                <input type="submit" name="opcion" value="Actualizar">
+        
+            </form><br><br>
+        {% endif %}
+        <div id="idMensajes">
+            {% if mensajes %}
+            {{mensaje}}
+            {% endif %}
+        </div>
+        <br><br>
+        <a href="{% url 'crud' %}"> Volver </a>
+    </div>
+    
+</body>
+</html>
