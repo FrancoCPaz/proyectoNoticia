@@ -66,15 +66,18 @@
 
                 <input type="submit" name="opcion" value="Actualizar">
         
-            </form><br><br>
+            </form>
+            <br>
+                
+            <br>
         {% endif %}
         <div id="idMensajes">
             {% if mensajes %}
             {{mensaje}}
             {% endif %}
         </div>
-        <br><br>
-        <a href="{% url 'crud' %}"> Volver </a>
+        <br>
+        <a href="base">Volver al inicio</a>
     </div>
     
 </body>

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import Suscriptor,Genero
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 from .forms import GeneroForm
 
@@ -19,11 +22,13 @@ def listadoSQL(request):
     context={"suscripciones":suscripciones}
     return render(request, 'suscripciones/listadoSQL.html', context)
 
+@login_required
 def crud(request):
     suscripciones= Suscriptor.objects.all()
     context = {'suscripciones': suscripciones}
     return render(request, 'suscripciones/suscripcion_list.html', context)
 
+@login_required
 def suscripcionesAdd(request):
     if request.method != "POST":  # Corrección de la comparación
         # No es POST, por lo tanto se muestra el formulario para agregar.
@@ -61,18 +66,21 @@ def suscripcionesAdd(request):
                 activo=activo
             )
             obj.save()
+            messages.success(request, 'Suscriptor registrado!')
             context = {'mensaje': "OK, datos grabados..."}
         except Genero.DoesNotExist:
             context = {'mensaje': "Error: Género no encontrado."}
-
         return render(request, 'suscripciones/suscripcion_add.html', context)
-    
+        
+
+@login_required 
 def suscripciones_del(request,pk):
     context={}
     try:
         suscriptor=Suscriptor.objects.get(rut=pk)
 
         suscriptor.delete()
+        messages.success(request, '¡Suscriptor eliminado!')
         mensaje="Bien, datos eliminados..."
         suscripciones=Suscriptor.objects.all()
         context={'suscripciones': suscripciones, 'mensaje':mensaje}
@@ -83,7 +91,8 @@ def suscripciones_del(request,pk):
         suscripciones=Suscriptor.objects.all()
         context={'suscripciones': suscripciones, 'mensaje':mensaje}
         return render(request, 'suscripciones/suscripcion_list.html', context)
-    
+
+@login_required  
 def suscripciones_findEdit(request,pk):
 
     if pk != "":
@@ -99,6 +108,7 @@ def suscripciones_findEdit(request,pk):
             context={'mensaje':"Error, rut no existe..."}
             return render(request, 'suscripciones/suscripcion_list', context)
 
+@login_required
 def suscripcionesUpdate(request):
     if request.method == "POST":
         #Es un POST, por lo tanto se recuperan los datos del formulario
@@ -138,14 +148,14 @@ def suscripcionesUpdate(request):
         context={'suscripciones':suscripciones}
         return render(request, 'suscripciones/suscripcion_list.html', context)
 
-
+@login_required
 def crud_generos(request):
     generos=Genero.objects.all()
     context={'generos':generos}
     print("enviando datos generos_list")
     return render(request, "suscripciones/generos_list.html",context)
 
-
+@login_required
 def generosAdd(request):
     print("estoy en controlador generosAdd...")
     context={}
@@ -167,7 +177,7 @@ def generosAdd(request):
         context={'form':form}
         return render(request,'suscripciones/generos_add.html',context)
     
-
+@login_required
 def generos_del(request,pk):
     mensajes=[]
     errores=[]
@@ -187,7 +197,7 @@ def generos_del(request,pk):
         context={'mensaje':mensaje, 'generos':generos}
         return render(request, 'suscripciones/generos_list.html', context)
     
-
+@login_required
 def generos_edit(request,pk):
     try:
         genero=Genero.objects.get(id_genero=pk)

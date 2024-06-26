@@ -11,43 +11,40 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2>Formulario CRUD para Suscripciones</h2><br>
+        <div class="header">
+            <h2>Formulario Suscripciones</h2>
+        </div>
+        <br>
         <form id="form" class="form" action="suscripcionesAdd" method="POST">
             {% csrf_token %}
 
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert">
+                    <button type="button" class="close" data-dismiss="alert" id="btn-success">{{ message }}</button>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+
             <div class="form-control">
-                <input type="text" name="rut" placeholder="Rut" id="rut">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="text" name="rut" placeholder="Rut" id="rut" required>
             </div>
 
             <div class="form-control">
-                <input type="text" name="nombre" placeholder="Nombre" id="name">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="text" name="nombre" placeholder="Nombre" id="name" required>
             </div>
 
             <div class="form-control">
-                <input type="text" name="paterno" placeholder="Apellido Paterno" id="paterno">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="text" name="paterno" placeholder="Apellido Paterno" id="paterno" required>
             </div>
 
             <div class="form-control">
-                <input type="text" name="materno" placeholder="Apellido Materno" id="materno">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="text" name="materno" placeholder="Apellido Materno" id="materno" required>
             </div>
 
             <div class="form-control">
-                <input type="date" name="fechaNac" placeholder="Fecha" id="fecha">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="date" name="fechaNac" placeholder="Fecha" id="fecha" required>
             </div>
             
             
@@ -57,45 +54,40 @@
                         <option value="{{genero.id_genero}}" >{{genero.genero}}</option>
                     {% endfor %}
                 </select>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
             </div>
             
             <div class="form-control">
-                <input type="text" name="telefono" placeholder="Telefono" id="telefono">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="text" name="telefono" placeholder="Telefono" id="telefono" required>
             </div>
             
             <div class="form-control">
-                <input type="mail" name="email" placeholder="Email" id="email">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="mail" name="email" placeholder="Email" id="email" required>
             </div>
             
             <div class="form-control">
-                <input type="text" name="direccion" placeholder="Direccion" id="direccion">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <input type="text" name="direccion" placeholder="Direccion" id="direccion" required>
             </div>            
             
 
-            <input type="submit" name="opcion" value="Agregar">
-            <button>Registrar</button>
+            
+            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
 
-        </form><br><br>
-        <a href="{% url 'crud' %}"> Volver </a>
+            
+
+        </form>
         <br>
+        <a href="base">Volver al inicio</a>
+        <br>
+
         <div id="idMensajes">
             {% if mensajes %}
-            {{mensaje}}
+                {{mensaje}}
             {% endif %}
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     
 </body>
 </html>

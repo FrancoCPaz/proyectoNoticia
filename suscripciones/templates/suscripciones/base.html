@@ -33,14 +33,31 @@
               <li class="nav-item">
                 <a class="nav-link" href="../acerca">Nosotros</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../noticias relevantes">Resumen Noticias</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="../contacto">Contacto</a>
               </li>
+
               <li class="nav-item">
+                <a class="nav-link" href="../index">Suscriptores</a>
               </li>
+
+              <li class="nav-item">
+                <a class="dropdown-item" href="{% url 'login' %}">
+                  {% if user.is_authenticated %}
+                      {{user.username}}
+                  {% else %}
+                      <a href="{% url 'login' %}">Login</a>
+                  {% endif %}
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a>
+              </li>
+
+              
+              
             </ul>
           </div>
         </nav>
@@ -270,7 +287,7 @@
             <li><a href="#" class="text-light">Noticias</a></li>
             <li><a href="../acerca" class="text-light">Nosotros</a></li>
             <li><a href="#" class="text-light">Contacto</a></li>
-            <li><a href="../login" class="text-light">inicio de seccion</a></li>
+            <li><a href="../login" class="text-light">inicio de seion</a></li>
           </ul>
         </div>
         <div class="col-md-4">

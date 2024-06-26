@@ -56,7 +56,7 @@ ROOT_URLCONF = 'caosnews.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +68,9 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = "crud"
+LOGOUT_REDIRECT_URL = "base"
 
 WSGI_APPLICATION = 'caosnews.wsgi.application'
 
