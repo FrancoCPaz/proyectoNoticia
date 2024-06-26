@@ -31,8 +31,8 @@ urlpatterns = [
     path('registro/', views.registro, name='registro'),
     path('base/', views.base, name='base'),
 
-
-
-    
-
+    path('agregar_noticia',views.agregar_noticia, name='agregar_noticia'),
+    path('listar_noticia',views.lista_noticia, name="listar_noticia"),
+    path('listar_noticia/<int:id_noticia>/', views.noticia_eliminar, name='noticia_eliminar'),
+    path('editar_noticia/<int:id_noticia>/', views.editar_noticia, name='editar_noticia'),
 ]

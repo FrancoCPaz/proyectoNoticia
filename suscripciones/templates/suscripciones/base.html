@@ -187,41 +187,25 @@
   </div>
   <!--noticia-->
 
-<!--cartas noticias-->
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="../../static/img/fondo-1.jpeg" class="card-img-top" alt="noticia">
-          <div class="card-body">
-            <h5 class="card-title">Noticia 1</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus, magni blanditiis aliquid et excepturi quia eos ea nesciunt dignissimos veritatis esse? Expedita asperiores, odit quas minus earum molestiae voluptatum?</p>
-            <a href="#" class="btn btn-primary">Leer más</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="../../static/img/fondo-2.jpeg" class="card-img-top" alt="noticia">
-          <div class="card-body">
-            <h5 class="card-title">Título de la Noticia 2</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus, magni blanditiis aliquid et excepturi quia eos ea nesciunt dignissimos veritatis esse? Expedita asperiores, odit quas minus earum molestiae voluptatum?</p>
-            <a href="#" class="btn btn-primary">Leer más</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card" id="3">
-          <img src="https://t.ctcdn.com.br/XEuSCkU3tJjRpnbWBuH_d2w_Z3Q=/660x0/smart/i516029.jpeg" class="card-img-top" alt="noticia">
-          <div class="card-body">
-            <h5 class="card-title">Título de la Noticia 3</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus, magni blanditiis aliquid et excepturi quia eos ea nesciunt dignissimos veritatis esse? Expedita asperiores, odit quas minus earum molestiae voluptatum?</p>
-            <a href="../noticia1" class="btn btn-primary">Leer más</a>
+  <!--cartas noticias-->
+  {%for noticia in noticias|slice:":3"%}
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{{noticia.imagen.url}}" class="card-img-top" alt="noticia">
+            <div class="card-body">
+              <h5 class="card-title">{{noticia.nombre}}</h5>
+              <p class="card-text">{{noticia.descripcion}}</p>
+              <a href="#" class="btn btn-primary">Leer más</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  {% endfor %}
+
+
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-8">

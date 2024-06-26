@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
-from .models import Suscriptor,Genero
+from .models import Suscriptor,Genero, Noticia
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import GeneroForm
+from .forms import GeneroForm, noticiaForm
 
 # Create your views here.
 
@@ -262,6 +262,45 @@ def base(request):
     return render(request, 'suscripciones/base.html')
 
 
+def agregar_noticia(request):
+    form= noticiaForm()
+    if request.method =='POST':
+        form = noticiaForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            form = noticiaForm()
+        context={'form':form}
+        return render(request, 'suscripciones/agregar_noticia.html',context)
+    context={'form':form}
+    return render(request, 'suscripciones/agregar_noticia.html',context)
 
+def lista_noticia(request):
+    noticia = Noticia.objects.all()
+    context={'noticias':noticia}
+    return render(request, 'suscripciones/listar_noticia.html',context)
     
+
+def noticia_eliminar(request,id_noticia):
+    noticia_eliminar = get_object_or_404(Noticia, id_noticia=id_noticia)
+    noticia_eliminar.delete()
+    messages.success(request,'noticia eliminada')
+    return redirect('listar_noticia')
+    
+def editar_noticia(request, id_noticia):
+    instance = get_object_or_404(Noticia, id_noticia=id_noticia) if id_noticia else None
+    if request.method == 'POST':
+        form = noticiaForm(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+            mensaje = "editado correctamente"
+            context = {
+                'mensaje': mensaje,
+                'form': form
+            }
+            return render(request, 'suscripciones/listar_noticia.html', context)
+    else:
+        form = noticiaForm(instance=instance)
+    
+    context = {'form': form}
+    return render(request, 'suscripciones/editar_noticia.html', context)
 
