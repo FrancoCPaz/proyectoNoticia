@@ -261,7 +261,7 @@ def registro(request):
 def base(request):
     return render(request, 'suscripciones/base.html')
 
-
+@login_required
 def agregar_noticia(request):
     form= noticiaForm()
     if request.method =='POST':
@@ -274,18 +274,20 @@ def agregar_noticia(request):
     context={'form':form}
     return render(request, 'suscripciones/agregar_noticia.html',context)
 
+@login_required
 def lista_noticia(request):
     noticia = Noticia.objects.all()
     context={'noticias':noticia}
     return render(request, 'suscripciones/listar_noticia.html',context)
     
-
+@login_required
 def noticia_eliminar(request,id_noticia):
     noticia_eliminar = get_object_or_404(Noticia, id_noticia=id_noticia)
     noticia_eliminar.delete()
     messages.success(request,'noticia eliminada')
     return redirect('listar_noticia')
-    
+
+@login_required   
 def editar_noticia(request, id_noticia):
     instance = get_object_or_404(Noticia, id_noticia=id_noticia) if id_noticia else None
     if request.method == 'POST':
