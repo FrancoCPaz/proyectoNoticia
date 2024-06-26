@@ -1,7 +1,7 @@
-{% extends "Administrador/base %.html"}
+{% extends "Administrador/base.html" %}
 {% load static %}
 
-{% block title %} Gestion Caos News {% end block %}
+{% block title %} Gestion Caos News {% endblock %}
 
 
 
@@ -9,7 +9,7 @@
     <div class="container">
         {% if suscripciones %}
             <br><br>
-            {% suscriptor for suscripciones %}
+            {% for suscriptor in suscripciones %}
                 {{suscriptor}} <br>
             {% endfor %}
         {% endif %}
