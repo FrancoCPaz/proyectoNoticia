@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %} 
+  <link rel="stylesheet" href="{% static 'core/css/styleIndex.css'%}">
+    <title>Editar</title>
+</head>
+<body>
+    
+{% if mensaje %}
+    <div class="alert alert-success alert-dismissible fade show text-center mt-2" role="alert">
+        {% for mensaje in mensaje %}
+        <strong>{{ mensaje }}</strong>
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{%endif%}
+    <form method='post'enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="btn" type=submit>guardar</button>
+    </form>
+</body>
+</html>

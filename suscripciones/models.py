@@ -25,3 +25,13 @@ class Suscriptor(models.Model):
 
     def __str__(self):
         return str(self.nombre)+" "+str(self.apellido_paterno)
+    
+class Noticia(models.Model):
+        id_noticia = models.AutoField(primary_key=True)
+        nombre = models.CharField(max_length=50)
+        descripcion = models.CharField(max_length=100, null=True)
+        imagen = models.ImageField(upload_to='noticia', null=False, blank=True)
+
+        #def delete(self, *args, **kwargs):
+        #   self.imagen.delete(save=False)
+        #  super().delete(*args, **kwargs)
