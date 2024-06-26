@@ -3,8 +3,6 @@ from django.http import HttpResponseRedirect
 from .models import Suscriptor,Genero
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
-
 from .forms import GeneroForm
 
 # Create your views here.
@@ -28,7 +26,7 @@ def crud(request):
     context = {'suscripciones': suscripciones}
     return render(request, 'suscripciones/suscripcion_list.html', context)
 
-@login_required
+
 def suscripcionesAdd(request):
     if request.method != "POST":  # Corrección de la comparación
         # No es POST, por lo tanto se muestra el formulario para agregar.
@@ -262,3 +260,8 @@ def registro(request):
 
 def base(request):
     return render(request, 'suscripciones/base.html')
+
+
+
+    
+

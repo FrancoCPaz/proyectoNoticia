@@ -1,10 +1,21 @@
+document.getElementById('form').addEventListener('submit', function(event) {
+    var fechaInput = document.getElementById('fecha');
+    if (fechaInput.value === '') {
+        setErrorFor(rut, 'No puede dejar Fecha en blanco');
+	} else {
+		setSuccessFor(rut);
+    }
+});
+
 const form = document.getElementById('form');
+const rut = document.getElementById('rut');
 const nombre = document.getElementById('name');
-const apellido = document.getElementById('lastname');
-const usuario = document.getElementById('username');
+const paterno = document.getElementById('paterno');
+const materno = document.getElementById('materno');
+const fecha = document.getElementById('fecha');
+const telefono = document.getElementById('telefono');
 const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const direccion = document.getElementById('direccion');
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -12,53 +23,68 @@ form.addEventListener('submit', e => {
 	checkInputs();
 });
 
+
+
 function checkInputs() {
-	// trim to remove the whitespaces
+	// trim to remove the whitespaces}
+
+	const rutValue = rut.value.trim();
     const nombreValue = nombre.value.trim();
-    const apellidoValue = apellido.value.trim();
-	const usuarioValue = usuario.value.trim();
+    const paternoValue = paterno.value.trim();
+	const maternoValue = materno.value.trim();
+	const fechaValue = fecha.value.trim();
+	const telefonoValue = telefono.value.trim();
 	const emailValue = email.value.trim();
-	const passwordValue = password.value.trim();
-	const password2Value = password2.value.trim();
+	const direccionValue = direccion.value.trim();
+
 	
+	if(rutValue === '') {
+		setErrorFor(rut, 'No puede dejar el Rut en blanco');
+	} else {
+		setSuccessFor(rut);
+	}
+
     if(nombreValue === '') {
 		setErrorFor(nombre, 'No puede dejar el Nombre en blanco');
 	} else {
 		setSuccessFor(nombre);
 	}
 
-    if(apellidoValue === '') {
-		setErrorFor(apellido, 'No puede dejar el Apellido en blanco');
+    if(paternoValue === '') {
+		setErrorFor(paterno, 'No puede dejar el Apellido Paterno en blanco');
 	} else {
-		setSuccessFor(apellido);
+		setSuccessFor(paterno);
 	}
 
-	if(usuarioValue === '') {
-		setErrorFor(usuario, 'No puede dejar el Nombre de Usuario en blanco');
+	if(maternoValue === '') {
+		setErrorFor(materno, 'No puede dejar el Apellido Materno en blanco');
 	} else {
-		setSuccessFor(usuario);
+		setSuccessFor(materno);
 	}
-	
+
+	if(fechaValue === '') {
+		setErrorFor(fecha, 'No puede dejar fecha en blanco');
+	} else {
+		setSuccessFor(fecha);
+	}
+		
+	if(telefonoValue === '') {
+		setErrorFor(telefono, 'Telefono no debe ingresar en blanco.');
+	} else {
+		setSuccessFor(telefono);
+	}
 	if(emailValue === '') {
 		setErrorFor(email, 'No puede dejar el email en blanco');
-	} else if (!isEmail(emailValue)) {
-		setErrorFor(email, 'No ingresó un email válido');
+	} 	else if (!isEmail(emailValue)) {
+		setErrorFor(email, 'Email invalido');
 	} else {
 		setSuccessFor(email);
 	}
 	
-	if(passwordValue === '') {
-		setErrorFor(password, 'Contraseña no debe ingresar en blanco.');
-	} else {
-		setSuccessFor(password);
-	}
-	
-	if(password2Value === '') {
-		setErrorFor(password2, 'Confirmar Contraseña no debe ingresar en blanco');
-	} else if(passwordValue !== password2Value) {
-		setErrorFor(password2, 'Contraseñas no coinciden');
+	if(direccionValue === '') {
+		setErrorFor(direccion, 'Direccion no debe ingresar en blanco');
 	} else{
-		setSuccessFor(password2);
+		setSuccessFor(direccion);
 	}
 }
 

@@ -31,4 +31,8 @@ urlpatterns = [
     path('registro/', views.registro, name='registro'),
     path('base/', views.base, name='base'),
 
+
+
+    
+
 ]

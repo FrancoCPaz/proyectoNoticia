@@ -43,18 +43,27 @@
               </li>
 
               <li class="nav-item">
-                <a class="dropdown-item" href="{% url 'login' %}">
-                  {% if user.is_authenticated %}
-                      {{user.username}}
-                  {% else %}
-                      <a href="{% url 'login' %}">Login</a>
-                  {% endif %}
-                </a>
+                <a class="nav-link" href="../crud">Crud</a>
               </li>
 
               <li class="nav-item">
-                <a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a>
+                <a class="nav-link" href="../../admin">Django</a>
               </li>
+
+
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% if user.is_authenticated %}
+                      {{user.username}}
+                  {% else %}
+                      <a>Login</a>
+                  {% endif %}
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'login' %}">Ingresar</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a>
+                </div>
+              </div>
 
               
               
@@ -316,7 +325,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="scripts.js"></script>
+  <!--<script src="scripts.js"></script>-->
   <script src="../../static/js/tiempo.js"></script>
   <script src="../../static/js/weather.js"></script>
 </body>
