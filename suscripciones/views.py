@@ -26,7 +26,7 @@ def crud(request):
     context = {'suscripciones': suscripciones}
     return render(request, 'suscripciones/suscripcion_list.html', context)
 
-
+@login_required
 def suscripcionesAdd(request):
     if request.method != "POST":  # Corrección de la comparación
         # No es POST, por lo tanto se muestra el formulario para agregar.
