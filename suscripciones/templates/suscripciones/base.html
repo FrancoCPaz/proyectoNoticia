@@ -192,22 +192,24 @@
   <!--noticia-->
 
   <!--cartas noticias-->
-  {%for noticia in noticias|slice:":3"%}
+  
     <div class="container mt-4">
       <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="{{noticia.imagen.url}}" class="card-img-top" alt="noticia">
-            <div class="card-body">
-              <h5 class="card-title">{{noticia.nombre}}</h5>
-              <p class="card-text">{{noticia.descripcion}}</p>
-              <a href="#" class="btn btn-primary">Leer más</a>
+        {% for Noticia in noticias|slice:":3" %}
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{Noticia.imagen.url}}" class="card-img-top" alt="Noticia">
+              <div class="card-body">
+                <h5 class="card-title">{{Noticia.nombre}}</h5>
+                <p class="card-text">{{Noticia.descripcion}}</p>
+                <a href="#" class="btn btn-primary">Leer más</a>
+              </div>
             </div>
           </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
-  {% endfor %}
+    
 
 
   <div class="container mt-4">
